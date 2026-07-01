@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Sorriso Premium</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+html {
+scroll-behavior: smooth;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#f7fbff;
+color:#222;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+position:sticky;
+top:0;
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+z-index:999;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#0F4C81;
+}
+
+nav a{
+margin:20px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+transition: color 0.3s;
+}
+
+nav a:hover{
+color: #0F4C81;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+padding:80px 8%;
+align-items:center;
+gap:60px;
+}
+
+.hero h1{
+font-size:58px;
+color:#0F4C81;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:20px;
+line-height:1.7;
+margin-bottom:35px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:18px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+border: none;
+cursor: pointer;
+display: inline-block;
+text-align: center;
+}
+
+.primary{
+background:#0F4C81;
+color:white;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.hero img{
+width:100%;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.features{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:40px;
+background:white;
+flex-wrap:wrap;
+}
+
+.feature{
+background:#eef7ff;
+padding:20px 35px;
+border-radius:18px;
+font-weight:700;
+}
+
+.section{
+padding:90px 8%;
+}
+
+.section-title{
+font-size:42px;
+color:#0F4C81;
+margin-bottom:40px;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.07);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin:15px 0;
+color:#0F4C81;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:30px;
+}
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.testimonial{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* ESTILOS DO FORMULÁRIO DE CONTATO (WEB3FORMS) */
+.contact-container {
+max-width: 600px;
+margin: 0 auto;
+background: white;
+padding: 40px;
+border-radius: 25px;
+box-shadow: 0 15px 40px rgba(0,0,0,.07);
+opacity: 0; /* Começa invisível para a animação do script */
+}
+
+.form-group {
+margin-bottom: 20px;
+text-align: left;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 15px;
+border: 2px solid #e1e8ed;
+border-radius: 12px;
+font-size: 16px;
+transition: border-color 0.3s;
+outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+border-color: #0F4C81;
+}
+
+.form-group textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.cta{
+background:#0F4C81;
+color:white;
+padding:80px 8%;
+text-align:center;
+}
+
+.cta h2{
+font-size:48px;
+margin-bottom:20px;
+}
+
+footer{
+background:#082640;
+color:white;
+padding:50px;
+text-align:center;
+}
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 60px;
+height: 60px;
+background-color: #25d366;
+color: #fff;
+border-radius: 50px;
+text-align: center;
+box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+z-index: 1000;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+transform: scale(1.1);
+background-color: #20ba5a;
+}
+
+.whatsapp-float svg {
+width: 34px;
+height: 34px;
+fill: white;
+}
+
+@media(max-width:900px){
+
+.hero,
+.about{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.whatsapp-float {
+bottom: 20px;
+right: 20px;
+width: 55px;
+height: 55px;
+}
+.whatsapp-float svg {
+width: 30px;
+height: 30px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+Sorriso Premium
+</div>
+
+<nav>
+
+<a href="#">Início</a>
+<a href="#">Serviços</a>
+<a href="#">Equipe</a>
+<a href="#contato">Contato</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>
+Seu sorriso merece o melhor cuidado.
+</h1>
+
+<p>
+
+Atendimento odontológico moderno com tecnologia de ponta e profissionais especializados para cuidar da sua saúde bucal.
+
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="#contato">
+Agendar Consulta
+</a>
+
+<a class="btn whatsapp" href="https://wa.me/5541999999999" target="_blank" rel="noopener noreferrer">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900" alt="Dentista">
+
+</div>
+
+</section>
+
+<div class="features">
+
+<div class="feature">✔ Atendimento Humanizado</div>
+
+<div class="feature">✔ Equipamentos Modernos</div>
+
+<div class="feature">✔ Estacionamento</div>
+
+<div class="feature">✔ Parcelamento Facilitado</div>
+
+</div>
+
+<section class="section">
+
+<h2 class="section-title">
+Por que escolher nossa clínica?
+</h2>
+
+<div class="about">
+
+<div>
+
+<p>
+
+Nossa missão é transformar sorrisos através da tecnologia, experiência e atendimento personalizado.
+
+Utilizamos equipamentos digitais, materiais premium e profissionais altamente qualificados para oferecer resultados seguros e duradouros.
+
+</p>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=900">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+
+Nossos Serviços
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🦷 Clareamento Dental</h3>
+
+<p>Sorriso mais branco em poucas sessões.</p>
+
+</div>
+
+<div class="card">
+
+<h3>😁 Implantes</h3>
+
+<p>Recupere sua mastigação e autoestima.</p>
+
+</div>
+
+<div class="card">
+
+<h3>✨ Facetas</h3>
+
+<p>Transformação estética completa.</p>
+
+</div>
+
+<div class="card">
+
+<h3>😁 Ortodontia</h3>
+
+<p>Alinhamento com aparelhos modernos.</p>
+
+</div>
+
+<div class="card">
+
+<h3>🦷 Limpeza</h3>
+
+<p>Prevenção e saúde bucal.</p>
+
+</div>
+
+<div class="card">
+
+<h3>🪥 Canal</h3>
+
+<p>Tratamento seguro e confortável.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+
+Depoimentos
+
+</h2>
+
+<div class="testimonials">
+
+<div class="testimonial">
+
+★★★★★
+
+<h3>Maria Silva</h3>
+
+<p>
+
+Excelente atendimento. Fiz meu implante e ficou perfeito.
+
+</p>
+
+</div>
+
+<div class="testimonial">
+
+★★★★★
+
+<h3>João Henrique</h3>
+
+<p>
+
+Profissionais extremamente atenciosos.
+
+</p>
+
+</div>
+
+<div class="testimonial">
+
+★★★★★
+
+<h3>Ana Paula</h3>
+
+<p>
+
+A melhor clínica que já conheci.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+
+Agende sua avaliação hoje mesmo
+
+</h2>
+
+<p>
+
+Descubra o tratamento ideal para o seu sorriso.
+
+</p>
+
+<br>
+
+<a class="btn whatsapp" href="https://wa.me/5541999999999" target="_blank" rel="noopener noreferrer">
+
+Quero Agendar via WhatsApp
+
+</a>
+
+</section>
+
+<section class="section" id="contato">
+<h2 class="section-title">Fale Conosco</h2>
+
+<div class="contact-container">
+<form action="https://api.web3forms.com/submit" method="POST">
+
+<input type="hidden" name="access_key" value="d12aa8e6-992b-424f-b073-af99d5f9ed3f">
+
+<input type="hidden" name="from_name" value="Site - Sorriso Premium">
+
+<div class="form-group">
+<label for="name">Nome Completo</label>
+<input type="text" id="name" name="name" placeholder="Ex: João Silva" required>
+</div>
+
+<div class="form-group">
+<label for="email">E-mail</label>
+<input type="email" id="email" name="email" placeholder="Ex: joao@email.com" required>
+</div>
+
+<div class="form-group">
+<label for="phone">Telefone / WhatsApp</label>
+<input type="tel" id="phone" name="phone" placeholder="Ex: (41) 99999-9999" required>
+</div>
+
+<div class="form-group">
+<label for="message">Mensagem</label>
+<textarea id="message" name="message" placeholder="Como podemos ajudar você hoje?" required></textarea>
+</div>
+
+<button type="submit" class="btn primary" style="width: 100%; border-radius: 12px; padding: 15px;">Enviar Mensagem</button>
+
+</form>
+</div>
+</section>
+
+<footer>
+
+<h3>
+
+Clínica Sorriso Premium
+
+</h3>
+
+<br>
+
+<p>
+
+📍 Rua Exemplo, 123
+
+</p>
+
+<p>
+
+📞 (41) 99999-9999
+
+</p>
+
+<p>
+
+✉ contato@sorrisopremium.com.br
+
+</p>
+
+</footer>
+
+<a href="https://wa.me/5541999999999" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale conosco no WhatsApp">
+<svg viewBox="0 0 32 32">
+<path d="M16 2a13 13 0 0 0-11.3 19.4L3 29l7.8-2A13 13 0 1 0 16 2zm6.7 18.9c-.3.8-1.7 1.6-2.4 1.7-.7.1-1.3.2-4.3-1-3.6-1.5-6-5.2-6.2-5.4-.1-.3-1.3-1.8-1.3-3.5 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.3-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.3.5 1.2 2 2.6 3.2 1.8 1.6 3.3 2.1 3.7 2.3.4.2.7.1 1-.2.3-.3 1.2-1.4 1.5-1.9.4-.5.7-.4 1.2-.2.5.2 3.1 1.5 3.6 1.7.5.3.9.4 1 .6.2.3.2 1.6-.2 2.4z"/>
+</svg>
+</a>
+
+<script>
+// Correção e aplicação do IntersectionObserver nos cards e no container de contato
+const cards = document.querySelectorAll('.card, .testimonial, .contact-container');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.animate([
+                { opacity: 0, transform: 'translateY(50px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], {
+                duration: 700,
+                fill: 'forwards'
+            });
+            observer.unobserve(entry.target); // Evita repetir a animação ao rolar a página de volta
+        }
+    });
+}, { threshold: 0.1 });
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
